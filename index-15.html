@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Octavien Maury</title>
+<meta name="author" content="Octavien Maury" />
+<meta name="description" content="Octavien Maury — PhD candidate in Law and Economics at CRED, Université Paris 2 Panthéon-Assas." />
+<meta name="theme-color" content="#1e4fd6" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Octavien Maury" />
+<meta property="og:title" content="Octavien Maury" />
+<meta property="og:description" content="PhD candidate in Law and Economics at CRED, Université Paris 2 Panthéon-Assas." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Octavien Maury" />
+<meta name="twitter:description" content="PhD candidate in Law and Economics at CRED, Université Paris 2 Panthéon-Assas." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#16203a;
+    --ink-soft:#3a465e;
+    --muted:#6b7488;
+    --faint:#9aa2b4;
+    --line:#e7e9ef;
+    --line-strong:#d6dae4;
+    --paper:#ffffff;
+    --panel:#f7f8fb;
+    --accent:#1e4fd6;
+    --accent-deep:#163b9e;
+    --accent-wash:#eef2fd;
+    --green-bg:#e4f6ec;
+    --green-border:#a5dcbb;
+    --green-text:#237a4e;
+    --green-hover:#d3efdf;
+    --maxw:1000px;
+    --nav-h:64px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{color:var(--accent-deep); text-decoration:underline; text-underline-offset:3px;}
+  .mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ================= TOP NAV ================= */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.86);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:0 28px; height:var(--nav-h);
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .brand{
+    font-family:"Newsreader", serif; font-weight:600; font-size:19px;
+    letter-spacing:-.01em; color:var(--ink); text-decoration:none; white-space:nowrap;
+  }
+  .brand:hover{color:var(--ink); text-decoration:none;}
+  .navright{display:flex; align-items:center; gap:8px;}
+  .navlinks{display:flex; align-items:center; gap:4px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    display:block; padding:8px 14px; font-size:14px; color:var(--ink-soft);
+    border-radius:6px; text-decoration:none; transition:background .15s, color .15s;
+  }
+  .navlinks a:hover{background:var(--panel); color:var(--ink); text-decoration:none;}
+  .navlinks a.active{color:var(--accent);}
+
+  .langbtn{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.08em; font-weight:500;
+    display:inline-flex; align-items:center; gap:6px; padding:7px 13px; cursor:pointer;
+    background:var(--green-bg); color:var(--green-text); border:1px solid var(--green-border);
+    border-radius:20px; transition:background .15s, border-color .15s; white-space:nowrap;
+  }
+  .langbtn:hover{background:var(--green-hover); border-color:var(--green-text);}
+  .langbtn::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--green-text); opacity:.7;}
+
+  .nav-toggle{display:none; background:none; border:1px solid var(--line-strong); border-radius:6px; width:40px; height:38px; cursor:pointer; padding:0;}
+  .nav-toggle span{display:block; width:18px; height:2px; background:var(--ink); margin:3px auto;}
+
+  /* ================= HERO ================= */
+  .hero{padding:72px 0 60px; border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid; grid-template-columns:1fr 260px; gap:56px; align-items:center;}
+  .hero h1{
+    font-family:"Newsreader", serif; font-weight:500; font-size:44px;
+    line-height:1.08; letter-spacing:-.015em; margin:0 0 14px; color:var(--ink);
+  }
+  .hero .role{font-size:17px; color:var(--ink-soft); margin:0 0 4px;}
+  .hero .affil{font-size:15px; color:var(--muted); margin:0 0 2px;}
+  .hero .affil a{color:var(--muted); text-decoration:underline; text-decoration-color:var(--line-strong); text-underline-offset:2px;}
+  .hero .affil a:hover{color:var(--accent);}
+  .hero .email{font-family:"IBM Plex Mono", monospace; font-size:13.5px; color:var(--muted); margin:0 0 22px;}
+  .hero .field{font-size:15px; color:var(--ink-soft); margin:0;}
+  .hero .herobio{margin-top:22px;}
+  .hero .herobio p{font-size:15.5px;}
+  .hero .field .flabel{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--accent); display:block; margin-bottom:3px;
+  }
+
+  .portrait{
+    width:100%; aspect-ratio:1/1.15; border-radius:4px;
+    background:linear-gradient(150deg, var(--accent-wash), #e1e8fb);
+    border:1px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--accent); font-family:"Newsreader", serif; font-size:56px; letter-spacing:1px; overflow:hidden;
+  }
+  .portrait img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* ================= SECTIONS ================= */
+  main .wrap{padding-top:60px; padding-bottom:60px;}
+  section{margin-bottom:64px; scroll-margin-top:calc(var(--nav-h) + 20px);}
+  section:last-child{margin-bottom:0;}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 22px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .prose{max-width:64ch;}
+  .prose p{margin:0 0 16px; color:var(--ink-soft);}
+  .prose p:last-child{margin-bottom:0;}
+  .prose strong{color:var(--ink); font-weight:600;}
+
+  .paper{padding:24px 0; border-top:1px solid var(--line);}
+  .paper:first-of-type{border-top:none; padding-top:4px;}
+  .paper h3{font-family:"Newsreader", serif; font-weight:600; font-size:20px; line-height:1.3; margin:0 0 6px; color:var(--ink);}
+  .paper .authors{font-size:14px; color:var(--muted); margin:0 0 10px;}
+  .paper .authors .me{color:var(--ink-soft); font-weight:500;}
+  .status{
+    display:inline-block; font-family:"IBM Plex Mono", monospace; font-size:10.5px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);
+    background:var(--panel); border:1px solid var(--line-strong); border-radius:2px;
+    padding:2px 8px; margin:0 0 12px; vertical-align:middle;
+  }
+  .status.jmp{color:var(--accent-deep); background:var(--accent-wash); border-color:#c3d2f6;}
+  .abstract{
+    display:none; font-size:14.5px; color:var(--ink-soft); margin:2px 0 12px;
+    max-width:66ch; padding-left:14px; border-left:2px solid var(--line-strong);
+  }
+  .abstract.open{display:block;}
+  .paper-links{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13px;}
+  .paper-links button{font:inherit; font-size:13px; background:none; border:none; padding:0; color:var(--accent); cursor:pointer;}
+  .paper-links button:hover{color:var(--accent-deep); text-decoration:underline; text-underline-offset:3px;}
+
+  .row{display:grid; grid-template-columns:120px 1fr; gap:20px; padding:16px 0; border-top:1px solid var(--line);}
+  .row:first-of-type{border-top:none;}
+  .row .when{font-family:"IBM Plex Mono", monospace; font-size:12.5px; color:var(--muted); padding-top:2px;}
+  .row .what h3{font-size:16px; margin:0 0 3px; color:var(--ink); font-weight:600;}
+  .row .what p{margin:0; font-size:14px; color:var(--muted);}
+
+  /* ================= MISCELLANEOUS ================= */
+  .proj{display:grid; grid-template-columns:1fr auto; gap:12px 20px; align-items:baseline; padding:18px 0; border-top:1px solid var(--line);}
+  .proj:first-of-type{border-top:none;}
+  .proj h3{font-family:"Newsreader", serif; font-weight:600; font-size:18px; margin:0 0 4px; color:var(--ink);}
+  .proj p{margin:0; font-size:14px; color:var(--muted); max-width:60ch;}
+  .proj .go{
+    font-family:"IBM Plex Mono", monospace; font-size:12px; white-space:nowrap;
+    border:1px solid var(--line-strong); border-radius:20px; padding:6px 13px; color:var(--ink-soft); transition:all .15s;
+  }
+  .proj .go:hover{border-color:var(--accent); color:var(--accent); background:var(--accent-wash); text-decoration:none;}
+
+  .hal{
+    margin-top:26px; border:1px solid var(--line-strong); border-radius:8px;
+    background:var(--panel); padding:20px 22px;
+  }
+  .hal h3{font-family:"Newsreader", serif; font-weight:600; font-size:17px; margin:0 0 4px; color:var(--ink);}
+  .hal .halsub{font-size:13px; color:var(--muted); margin:0 0 16px;}
+  .hal .opts{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 16px;}
+  .hal .opt{
+    display:inline-flex; align-items:center; gap:7px; cursor:pointer; user-select:none;
+    font-size:13.5px; color:var(--ink-soft);
+    border:1px solid var(--line-strong); border-radius:20px; padding:6px 13px; background:#fff; transition:all .15s;
+  }
+  .hal .opt:hover{border-color:var(--accent);}
+  .hal .opt input{accent-color:var(--accent); margin:0;}
+  .hal .opt.checked{border-color:var(--accent); background:var(--accent-wash); color:var(--accent-deep);}
+  .hal .draw{
+    font:inherit; font-size:14px; font-weight:500; cursor:pointer;
+    background:var(--accent); color:#fff; border:none; border-radius:6px; padding:9px 18px; transition:background .15s;
+  }
+  .hal .draw:hover{background:var(--accent-deep);}
+  .hal .draw:disabled{opacity:.6; cursor:default;}
+  .hal .halmsg{font-size:12.5px; color:var(--muted); margin:12px 0 0; min-height:1em; font-family:"IBM Plex Mono", monospace;}
+
+  /* ================= FOOTER + CONTACT ================= */
+  footer{border-top:1px solid var(--line); background:var(--panel); padding:44px 0 52px; margin-top:24px;}
+  .foot-grid{display:flex; justify-content:space-between; gap:32px; flex-wrap:wrap; align-items:flex-start;}
+  .foot-contact .flabel{font-family:"IBM Plex Mono", monospace; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin:0 0 8px;}
+  .foot-contact p{margin:0 0 4px; font-size:14px; color:var(--ink-soft);}
+  .foot-meta{font-size:12.5px; color:var(--faint); text-align:right;}
+  .foot-meta a{color:var(--muted);}
+
+  /* ================= MOBILE ================= */
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr; gap:34px;}
+    .portrait{max-width:200px; order:-1;}
+    .hero h1{font-size:36px;}
+  }
+  @media (max-width:640px){
+    .nav-toggle{display:block; order:3;}
+    .navright{gap:6px;}
+    .navlinks{
+      position:absolute; top:var(--nav-h); left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:#fff; border-bottom:1px solid var(--line); padding:8px 20px 16px; display:none;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:11px 8px; border-radius:0;}
+    .hero{padding:44px 0 40px;}
+    .hero h1{font-size:32px;}
+    .proj{grid-template-columns:1fr;}
+    .foot-grid{flex-direction:column;}
+    .foot-meta{text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOP NAV ================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Octavien Maury</a>
+    <div class="navright">
+      <nav>
+        <ul class="navlinks" id="navLinks">
+          <li><a href="#research" class="active" data-i18n="nav_research">Research</a></li>
+          <li><a href="#teaching" data-i18n="nav_teaching">Teaching</a></li>
+          <li><a href="#misc" data-i18n="nav_misc">Miscellaneous</a></li>
+        </ul>
+      </nav>
+      <button class="langbtn" id="langToggle" aria-label="Passer en français">FR</button>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Octavien Maury</h1>
+        <p class="role" data-i18n="role">PhD Candidate in Law &amp; Economics</p>
+        <p class="affil"><a href="https://cred.u-paris2.fr/" target="_blank" rel="noopener">CRED</a> · Université Paris&nbsp;2 Panthéon-Assas</p>
+        <p class="email">Octavien.maury [at] assas-universite.fr</p>
+        <p class="field"><span class="flabel" data-i18n="field_label">Primary field</span><span data-i18n="field_value">Law &amp; Economics · Public Economics</span></p>
+        <div class="prose herobio">
+          <p data-i18n="about_p1">
+            I am a PhD candidate at the <strong>Centre de Recherche sur le Droit et l'Économie (CRED)</strong>,
+            Université Paris&nbsp;2 Panthéon-Assas, co-supervised by
+            <a href="https://www.brunodeffains.info/home" target="_blank" rel="noopener">Bruno Deffains</a> and
+            <a href="https://romainespinosa.com" target="_blank" rel="noopener">Romain Espinosa</a>.
+          </p>
+          <p data-i18n="about_p2">
+            My research focuses on the <strong>understanding and aggregation of legal indicators</strong>,
+            and on the <strong>intensity of prison sentences</strong>.
+          </p>
+          <p data-i18n="about_cv">
+            For more details, <a href="cv.pdf" target="_blank" rel="noopener">download my CV</a>.
+          </p>
+        </div>
+      </div>
+      <!-- Replace initials with your photo: <img src="images/photo.jpg" alt="Octavien Maury" /> -->
+      <div class="portrait" aria-hidden="true">OM</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAIN ================= -->
+<main>
+  <div class="wrap">
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <p class="eyebrow" data-i18n="research_eyebrow">Working Papers</p>
+
+      <article class="paper">
+        <h3 data-i18n="p2_title">Who's Going to Jail Tonight?</h3>
+        <p class="authors"><span class="me">Octavien Maury</span></p>
+        <span class="status jmp" data-i18n="p2_status">Job market paper</span>
+        <div class="paper-links">
+          <button type="button" data-toggle data-i18n="abstract_btn">Abstract</button>
+          <a href="#" data-i18n="link_draft">Draft (PDF)</a>
+          <a href="#" data-i18n="link_slides">Slides</a>
+        </div>
+        <div class="abstract" data-i18n="p2_abs">
+          Placeholder abstract. This paper studies what drives the intensity of prison sentences —
+          how far stated and actual severity reflect beliefs about deterrence and rehabilitation
+          versus normative judgements about desert. Replace this text with your real abstract.
+        </div>
+      </article>
+
+      <article class="paper">
+        <h3 data-i18n="p1_title">The Aggregation and Reliability of International Legal Indicators</h3>
+        <p class="authors"><span class="me">Octavien Maury</span></p>
+        <span class="status" data-i18n="p1_status">Working paper · in progress</span>
+        <div class="paper-links">
+          <button type="button" data-toggle data-i18n="abstract_btn">Abstract</button>
+          <a href="#" data-i18n="link_draft">Draft (PDF)</a>
+        </div>
+        <div class="abstract" data-i18n="p1_abs">
+          Placeholder abstract. Legal and governance indicators guide aid, investment and reform,
+          yet how their many sub-components should be aggregated — and how much signal the result
+          actually carries — is rarely examined. This paper studies the construction and
+          informational reliability of such indices across a large cross-country panel. Replace
+          this text with your real abstract.
+        </div>
+      </article>
+    </section>
+
+    <!-- TEACHING -->
+    <section id="teaching">
+      <p class="eyebrow" data-i18n="teaching_eyebrow">Teaching</p>
+      <div class="row">
+        <div class="when">2024–2025</div>
+        <div class="what">
+          <h3 data-i18n="t1_title">History of Economic Thought</h3>
+          <p data-i18n="t1_desc">Chargé de TD (teaching assistant), undergraduate tutorials — Université Paris&nbsp;1 Panthéon-Sorbonne.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2024–2025</div>
+        <div class="what">
+          <h3 data-i18n="t2_title">Comparative Economic Theories</h3>
+          <p data-i18n="t2_desc">Chargé de TD — undergraduate tutorials, Université Paris&nbsp;1 Panthéon-Sorbonne.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISCELLANEOUS -->
+    <section id="misc">
+      <p class="eyebrow" data-i18n="misc_eyebrow">Miscellaneous</p>
+      <p class="prose" style="margin-bottom:22px;" data-i18n="misc_intro">
+        A few small side projects — some useful, some just for fun.
+      </p>
+
+      <div class="proj">
+        <div>
+          <h3>On va où ?</h3>
+          <p data-i18n="misc_travel">A little web app that picks a travel destination at random when you can't decide where to go.</p>
+        </div>
+        <a class="go" href="https://octavienmaury.github.io/onvaou2/" target="_blank" rel="noopener" data-i18n="misc_open">Open ↗</a>
+      </div>
+
+      <div class="proj">
+        <div>
+          <h3>EventsEcon — Paris economics seminars</h3>
+          <p data-i18n="misc_events">Every seminar, workshop and colloquium announced by the economics labs of Île-de-France, gathered and de-duplicated on one page, with a subscribable calendar.</p>
+        </div>
+        <a class="go" href="https://octavienmaury.github.io/EventsEcon/" target="_blank" rel="noopener" data-i18n="misc_open">Open ↗</a>
+      </div>
+
+      <div class="proj">
+        <div>
+          <h3>Random HAL document</h3>
+          <p data-i18n="misc_hal_desc">A browser extension I made that opens a random document from HAL. The native version below does the same thing, right here — no install needed.</p>
+        </div>
+        <a class="go" href="https://github.com/OctavienMaury/HAL-Add-on" target="_blank" rel="noopener" data-i18n="misc_source">Source ↗</a>
+      </div>
+
+      <!-- Native in-page version of the HAL extension -->
+      <div class="hal">
+        <h3 data-i18n="hal_title">Draw a random HAL document</h3>
+        <p class="halsub" data-i18n="hal_sub">Pick a type, then draw — it opens a random document from HAL in a new tab.</p>
+        <div class="opts" id="halOpts">
+          <label class="opt checked"><input type="checkbox" id="halAll" checked /><span data-i18n="hal_all">All documents</span></label>
+          <label class="opt"><input type="checkbox" id="halArt" /><span data-i18n="hal_art">Articles</span></label>
+          <label class="opt"><input type="checkbox" id="halThese" /><span data-i18n="hal_these">Theses</span></label>
+        </div>
+        <button class="draw" id="halDraw" data-i18n="hal_draw">Draw a document</button>
+        <p class="halmsg" id="halMsg"></p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ================= FOOTER + CONTACT ================= -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-contact">
+      <p class="flabel" data-i18n="contact_label">Contact</p>
+      <p><a href="mailto:octavien.maury@assas-universite.fr">octavien.maury@assas-universite.fr</a></p>
+      <p data-i18n="contact_office">CRED · Université Paris 2 Panthéon-Assas</p>
+      <p data-i18n="contact_address">31 rue Froidevaux, 75014 Paris</p>
+    </div>
+    <div class="foot-meta"><p>© <span id="year"></span> Octavien Maury</p></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- mobile menu ---- */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){ if(e.target.tagName === 'A') links.classList.remove('open'); });
+
+  /* ---- abstract toggles ---- */
+  document.querySelectorAll('[data-toggle]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var ab = btn.closest('.paper').querySelector('.abstract');
+      var open = ab.classList.toggle('open');
+      btn.textContent = open ? T[lang].abstract_hide : T[lang].abstract_btn;
+    });
+  });
+
+  /* ---- scroll-spy ---- */
+  var navA = Array.prototype.slice.call(document.querySelectorAll('.navlinks a[href^="#"]'));
+  var secs = navA.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  if ('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var id = '#' + e.target.id;
+          navA.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === id); });
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+    secs.forEach(function(s){ if(s) obs.observe(s); });
+  }
+
+  /* ================= NATIVE HAL RANDOM-DOCUMENT WIDGET ================= */
+  (function(){
+    var all = document.getElementById('halAll');
+    var art = document.getElementById('halArt');
+    var these = document.getElementById('halThese');
+    var draw = document.getElementById('halDraw');
+    var msg = document.getElementById('halMsg');
+
+    function syncChips(){
+      document.querySelectorAll('#halOpts .opt').forEach(function(l){
+        l.classList.toggle('checked', l.querySelector('input').checked);
+      });
+    }
+    all.addEventListener('change', function(){ if(all.checked){ art.checked=false; these.checked=false; } syncChips(); });
+    function offAll(){ if(art.checked || these.checked){ all.checked=false; } if(!art.checked && !these.checked){ all.checked=true; } syncChips(); }
+    art.addEventListener('change', offAll);
+    these.addEventListener('change', offAll);
+
+    // JSONP request to the HAL Solr API (avoids CORS restrictions on static hosting)
+    function halRequest(extra){
+      return new Promise(function(resolve, reject){
+        var cb = 'halcb_' + Math.random().toString(36).slice(2);
+        var s = document.createElement('script');
+        var timer = setTimeout(function(){ cleanup(); reject(new Error('timeout')); }, 12000);
+        function cleanup(){ clearTimeout(timer); try{ delete window[cb]; }catch(e){ window[cb] = undefined; } if(s.parentNode) s.parentNode.removeChild(s); }
+        window[cb] = function(data){ cleanup(); resolve(data); };
+        s.onerror = function(){ cleanup(); reject(new Error('net')); };
+        s.src = 'https://api.archives-ouvertes.fr/search/?q=*:*' + extra + '&wt=json&json.wrf=' + cb;
+        document.body.appendChild(s);
+      });
+    }
+
+    draw.addEventListener('click', function(){
+      var types = [];
+      if(!all.checked){ if(art.checked) types.push('ART'); if(these.checked) types.push('THESE'); }
+      var fq = types.length ? '&fq=docType_s:(' + types.join('%20OR%20') + ')' : '';
+
+      // open the tab now, inside the click, so the pop-up blocker allows it
+      var win = window.open('', '_blank');
+      draw.disabled = true;
+      msg.textContent = T[lang].hal_loading;
+
+      halRequest(fq + '&rows=0')
+        .then(function(d){
+          var n = (d.response && d.response.numFound) || 0;
+          if(!n){ throw new Error('empty'); }
+          var cap = Math.min(n, 5000);
+          var start = Math.floor(Math.random() * cap);
+          return halRequest(fq + '&rows=1&start=' + start + '&fl=uri_s,label_s');
+        })
+        .then(function(d){
+          var doc = d.response && d.response.docs && d.response.docs[0];
+          if(doc && doc.uri_s){
+            msg.textContent = '';
+            if(win){ win.location.href = doc.uri_s; } else { window.location.href = doc.uri_s; }
+          } else { throw new Error('empty'); }
+        })
+        .catch(function(){
+          if(win){ win.close(); }
+          msg.textContent = T[lang].hal_error;
+        })
+        .then(function(){ draw.disabled = false; });
+    });
+  })();
+
+  /* ================= TRANSLATION ================= */
+  var lang = 'en';
+  var T = {
+    en: {
+      nav_about:"About", nav_research:"Research", nav_teaching:"Teaching", nav_misc:"Miscellaneous",
+      role:"PhD Candidate in Law &amp; Economics",
+      field_label:"Primary field", field_value:"Law &amp; Economics · Public Economics",
+      about_eyebrow:"About",
+      about_p1:'I am a PhD candidate at the <strong>Centre de Recherche sur le Droit et l\'Économie (CRED)</strong>, Université Paris&nbsp;2 Panthéon-Assas, co-supervised by <a href="https://www.brunodeffains.info/home" target="_blank" rel="noopener">Bruno Deffains</a> and <a href="https://romainespinosa.com" target="_blank" rel="noopener">Romain Espinosa</a>.',
+      about_p2:'My research focuses on the <strong>understanding and aggregation of legal indicators</strong>, and on the <strong>intensity of prison sentences</strong>.',
+      about_cv:'For more details, <a href="cv.pdf" target="_blank" rel="noopener">download my CV</a>.',
+      research_eyebrow:"Working Papers",
+      p2_title:"Who's Going to Jail Tonight?",
+      p2_status:"Job market paper",
+      p2_abs:"Placeholder abstract. This paper studies what drives the intensity of prison sentences — how far stated and actual severity reflect beliefs about deterrence and rehabilitation versus normative judgements about desert. Replace this text with your real abstract.",
+      p1_title:"The Aggregation and Reliability of International Legal Indicators",
+      p1_status:"Working paper · in progress",
+      p1_abs:"Placeholder abstract. Legal and governance indicators guide aid, investment and reform, yet how their many sub-components should be aggregated — and how much signal the result actually carries — is rarely examined. This paper studies the construction and informational reliability of such indices across a large cross-country panel. Replace this text with your real abstract.",
+      abstract_btn:"Abstract", abstract_hide:"Hide abstract",
+      link_draft:"Draft (PDF)", link_slides:"Slides",
+      teaching_eyebrow:"Teaching",
+      t1_title:"History of Economic Thought",
+      t1_desc:"Chargé de TD (teaching assistant), undergraduate tutorials — Université Paris&nbsp;1 Panthéon-Sorbonne.",
+      t2_title:"Comparative Economic Theories",
+      t2_desc:"Chargé de TD — undergraduate tutorials, Université Paris&nbsp;1 Panthéon-Sorbonne.",
+      misc_eyebrow:"Miscellaneous",
+      misc_intro:"A few small side projects — some useful, some just for fun.",
+      misc_travel:"A little web app that picks a travel destination at random when you can't decide where to go.",
+      misc_events:"Every seminar, workshop and colloquium announced by the economics labs of Île-de-France, gathered and de-duplicated on one page, with a subscribable calendar.",
+      misc_hal_desc:"A browser extension I made that opens a random document from HAL. The native version below does the same thing, right here — no install needed.",
+      misc_open:"Open ↗", misc_source:"Source ↗",
+      hal_title:"Draw a random HAL document",
+      hal_sub:"Pick a type, then draw — it opens a random document from HAL in a new tab.",
+      hal_all:"All documents", hal_art:"Articles", hal_these:"Theses",
+      hal_draw:"Draw a document",
+      hal_loading:"Drawing…", hal_error:"Something went wrong — try again.",
+      contact_label:"Contact",
+      contact_office:"CRED · Université Paris 2 Panthéon-Assas",
+      contact_address:"31 rue Froidevaux, 75014 Paris"
+    },
+    fr: {
+      nav_about:"À propos", nav_research:"Recherche", nav_teaching:"Enseignement", nav_misc:"Divers",
+      role:"Doctorant en Droit &amp; Économie",
+      field_label:"Domaine principal", field_value:"Droit &amp; Économie · Économie publique",
+      about_eyebrow:"À propos",
+      about_p1:'Je suis doctorant au <strong>Centre de Recherche sur le Droit et l\'Économie (CRED)</strong>, Université Paris&nbsp;2 Panthéon-Assas, sous la co-direction de <a href="https://www.brunodeffains.info/home" target="_blank" rel="noopener">Bruno Deffains</a> et <a href="https://romainespinosa.com" target="_blank" rel="noopener">Romain Espinosa</a>.',
+      about_p2:'Mes recherches portent sur la <strong>compréhension et l\'agrégation des indicateurs juridiques</strong>, ainsi que sur l\'<strong>intensité des peines de prison</strong>.',
+      about_cv:'Pour plus de détails, <a href="cv.pdf" target="_blank" rel="noopener">téléchargez mon CV</a>.',
+      research_eyebrow:"Working papers",
+      p2_title:"Who's Going to Jail Tonight ?",
+      p2_status:"Job market paper",
+      p2_abs:"Résumé provisoire. Cet article étudie ce qui détermine l'intensité des peines de prison — dans quelle mesure la sévérité déclarée et effective reflète des croyances sur la dissuasion et la réhabilitation plutôt que des jugements normatifs sur le mérite de la peine. Remplace ce texte par ton vrai résumé.",
+      p1_title:"Agrégation et fiabilité des indicateurs juridiques internationaux",
+      p1_status:"Working paper · en cours",
+      p1_abs:"Résumé provisoire. Les indicateurs juridiques et de gouvernance orientent l'aide, l'investissement et la réforme, mais la manière d'agréger leurs nombreuses composantes — et la quantité de signal que le résultat porte réellement — est rarement examinée. Cet article étudie la construction et la fiabilité informationnelle de ces indices sur un large panel de pays. Remplace ce texte par ton vrai résumé.",
+      abstract_btn:"Résumé", abstract_hide:"Masquer le résumé",
+      link_draft:"Version (PDF)", link_slides:"Diapositives",
+      teaching_eyebrow:"Enseignement",
+      t1_title:"Histoire de la pensée économique",
+      t1_desc:"Chargé de TD, travaux dirigés de licence — Université Paris&nbsp;1 Panthéon-Sorbonne.",
+      t2_title:"Théories économiques comparées",
+      t2_desc:"Chargé de TD — travaux dirigés de licence, Université Paris&nbsp;1 Panthéon-Sorbonne.",
+      misc_eyebrow:"Divers",
+      misc_intro:"Quelques petits projets annexes — certains utiles, d'autres juste pour le plaisir.",
+      misc_travel:"Une petite app web qui tire une destination de voyage au hasard quand on ne sait pas où aller.",
+      misc_events:"Toutes les séances de séminaires, ateliers et colloques d'économie des labos d'Île-de-France, rassemblées et dédoublonnées sur une page, avec un agenda auquel s'abonner.",
+      misc_hal_desc:"Une extension de navigateur que j'ai faite pour ouvrir un document HAL au hasard. La version native ci-dessous fait la même chose, ici même — sans rien installer.",
+      misc_open:"Ouvrir ↗", misc_source:"Source ↗",
+      hal_title:"Tirer un document HAL au hasard",
+      hal_sub:"Choisis un type, puis tire — un document HAL au hasard s'ouvre dans un nouvel onglet.",
+      hal_all:"Tous les documents", hal_art:"Articles", hal_these:"Thèses",
+      hal_draw:"Tirer un document",
+      hal_loading:"Tirage…", hal_error:"Une erreur est survenue — réessaie.",
+      contact_label:"Contact",
+      contact_office:"CRED · Université Paris 2 Panthéon-Assas",
+      contact_address:"31 rue Froidevaux, 75014 Paris"
+    }
+  };
+
+  var langBtn = document.getElementById('langToggle');
+  function applyLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      var val = T[l][k];
+      if(val == null) return;
+      el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-toggle]').forEach(function(btn){
+      var ab = btn.closest('.paper').querySelector('.abstract');
+      btn.textContent = (ab && ab.classList.contains('open')) ? T[l].abstract_hide : T[l].abstract_btn;
+    });
+    langBtn.textContent = (l === 'en') ? 'FR' : 'EN';
+    langBtn.setAttribute('aria-label', (l === 'en') ? 'Passer en français' : 'Switch to English');
+  }
+  langBtn.addEventListener('click', function(){ applyLang(lang === 'en' ? 'fr' : 'en'); });
+</script>
+</body>
+</html>
